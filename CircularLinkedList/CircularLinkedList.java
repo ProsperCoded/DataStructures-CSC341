@@ -4,12 +4,15 @@ public class CircularLinkedList {
     private class Node {
         int value;
         Node next;
-        Node(int value) { this.value = value; }
+
+        Node(int value) {
+            this.value = value;
+        }
     }
-    
+
     private Node head;
     private Node tail;
-    
+
     public void insert(int value) {
         // insert at the end, keep it circular
         Node node = new Node(value);
@@ -23,14 +26,15 @@ public class CircularLinkedList {
             tail.next = head; // Circular link
         }
     }
-    
+
     public void delete(int value) {
         // loop once around the circle
-        if (head == null) return;
-        
+        if (head == null)
+            return;
+
         Node current = head;
         Node previous = tail;
-        
+
         do {
             if (current.value == value) {
                 if (current == head && current == tail) {

@@ -2,7 +2,7 @@ package BTree;
 
 public class BTree {
     private int T;
-    
+
     public class Node {
         int n;
         int[] key;
@@ -19,11 +19,13 @@ public class BTree {
     private Node root;
 
     public BTree(int t) {
+        // t is the minimum degree
         T = t;
         root = new Node(t);
     }
 
     public void insert(int k) {
+        // split root if it's full
         Node r = root;
         if (r.n == 2 * T - 1) {
             Node s = new Node(T);
@@ -39,6 +41,7 @@ public class BTree {
     }
 
     private void insertNonFull(Node x, int k) {
+        // insert into a node that has space
         int i = x.n - 1;
         if (x.leaf) {
             while (i >= 0 && x.key[i] > k) {
@@ -63,6 +66,7 @@ public class BTree {
     }
 
     private void splitChild(Node x, int i, Node y) {
+        // split full child into two nodes
         Node z = new Node(T);
         z.leaf = y.leaf;
         z.n = T - 1;

@@ -25,6 +25,7 @@ public class BPlusTree {
     }
 
     public BPlusTree(int m) {
+        // m is the order for this tree
         this.m = m;
         this.root = new LeafNode(m);
     }
@@ -34,6 +35,7 @@ public class BPlusTree {
         if(root instanceof LeafNode) {
             LeafNode leaf = (LeafNode) root;
             if(leaf.numKeys < m - 1) {
+                // just drop it in the leaf for now
                 leaf.keys[leaf.numKeys++] = key;
             }
         }

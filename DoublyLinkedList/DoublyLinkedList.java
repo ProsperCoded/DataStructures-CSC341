@@ -5,12 +5,15 @@ public class DoublyLinkedList {
         int value;
         Node next;
         Node prev;
-        Node(int value) { this.value = value; }
+
+        Node(int value) {
+            this.value = value;
+        }
     }
-    
+
     private Node head;
     private Node tail;
-    
+
     public void insertLast(int value) {
         // add to the back
         Node node = new Node(value);
@@ -22,10 +25,11 @@ public class DoublyLinkedList {
             tail = node;
         }
     }
-    
+
     public void deleteFirst() {
         // remove from front
-        if (head == null) return;
+        if (head == null)
+            return;
         if (head == tail) {
             head = tail = null;
             return;
@@ -33,7 +37,7 @@ public class DoublyLinkedList {
         head = head.next;
         head.prev = null;
     }
-    
+
     public void display() {
         // walk forward and print
         Node current = head;

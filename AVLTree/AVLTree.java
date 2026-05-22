@@ -1,4 +1,5 @@
 package AVLTree;
+
 public class AVLTree {
   private class AVLNode {
     private AVLNode leftChild;

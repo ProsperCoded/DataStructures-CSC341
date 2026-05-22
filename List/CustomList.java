@@ -8,7 +8,7 @@ public class CustomList {
         items = new Object[initialCapacity];
         count = 0;
     }
-    
+
     public CustomList() {
         this(10);
     }
@@ -39,7 +39,7 @@ public class CustomList {
             throw new IllegalArgumentException();
         return items[index];
     }
-    
+
     public int size() {
         // just return how many we actually used
         return count;

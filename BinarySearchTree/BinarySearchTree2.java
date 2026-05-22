@@ -10,54 +10,55 @@ public class BinarySearchTree2 {
     public Node(int value) {
       this.value = value;
     }
+
     @Override
-    public String toString(){
-      return "Node  ="+ value; 
+    public String toString() {
+      return "Node  =" + value;
     }
   }
+
   private Node root;
 
-  public void insert(int value){
+  public void insert(int value) {
     // course version of insert
-    if(root==null){
+    if (root == null) {
       root = new Node(value);
       return;
     }
 
     var node = new Node(value);
     var current = root;
-    while(true){
-      if(value < current.value){
-        // * check for parent 
-        if(current.leftChild == null){
+    while (true) {
+      if (value < current.value) {
+        // * check for parent
+        if (current.leftChild == null) {
           current.leftChild = node;
           break;
         }
         current = current.leftChild;
-        
-      }else {
-        // * check for parent 
-        if(current.rightChild ==null){
+
+      } else {
+        // * check for parent
+        if (current.rightChild == null) {
           current.rightChild = node;
           break;
         }
-        current=current.rightChild;
+        current = current.rightChild;
       }
     }
   }
-  
-  public boolean find( int value){
+
+  public boolean find(int value) {
 
     // just search like BST
     var current = root;
-    while (current!=null){
-      if(value < current.value){
+    while (current != null) {
+      if (value < current.value) {
         current = current.leftChild;
-      }
-      else if (value > current.value){
+      } else if (value > current.value) {
         current = current.rightChild;
-      }
-      else return true;
+      } else
+        return true;
     }
     return false;
   }
