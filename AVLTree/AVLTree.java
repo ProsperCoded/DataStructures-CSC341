@@ -24,6 +24,7 @@ public class AVLTree {
 
   // ? Recursion insertion from mosh
   public void insert(int value) {
+    // normal BST insert but with balancing
     root = insert(value, root);
   }
 
@@ -38,12 +39,14 @@ public class AVLTree {
     }
     resetHeight(root);
 
+    // fix balance if needed
     return balance(root);
   }
 
   private AVLNode balance(AVLNode root) {
     // Balance Factor
     if (isLeftHeavy(root)) {
+      // left side too tall
       System.out.println("Node: (" + root.value + ") is left heavy");
       // Detecting rotations
       if (balanceFactor(root.leftChild) >= 1) {
@@ -56,6 +59,7 @@ public class AVLTree {
         return root;
       }
     } else if (isRightHeavy(root)) {
+      // right side too tall
       System.out.println("Node: (" + root.value + ") is right heavy");
       // Detecting rotations
       if (balanceFactor(root.rightChild) <= -1) {
@@ -73,6 +77,7 @@ public class AVLTree {
   }
 
   private AVLNode rotateLeft(AVLNode root) {
+    // rotate to fix right-heavy
     var newRoot = root.rightChild;
     // if a node exists where we want to store root, we have to change that link
     root.rightChild = newRoot.leftChild;
@@ -87,6 +92,7 @@ public class AVLTree {
   }
 
   private AVLNode rotateRight(AVLNode root) {
+    // rotate to fix left-heavy
     var newRoot = root.leftChild;
     root.leftChild = newRoot.rightChild;
     newRoot.rightChild = root;
@@ -98,6 +104,7 @@ public class AVLTree {
   }
 
   private void resetHeight(AVLNode node) {
+    // update height using children
     node.height = Math.max(height(node.leftChild), height(node.rightChild)) + 1;
   }
 
@@ -119,6 +126,7 @@ public class AVLTree {
 
   // * Printing values
   public void transverseInOrder() {
+    // print in sorted order
     this.transverseInOrder(root);
   }
 

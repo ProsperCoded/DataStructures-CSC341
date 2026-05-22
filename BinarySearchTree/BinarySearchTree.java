@@ -14,6 +14,7 @@ public class BinarySearchTree {
   protected Node root;
 
   public void insert(int v){
+    // standard BST insert
     if(root == null){
       root = new Node(v);
       return;
@@ -37,6 +38,7 @@ public class BinarySearchTree {
     }
   };
   public boolean find(int v){
+    // walk down until we match or hit null
     Node current = root;
 
     while (current != null){

@@ -18,6 +18,7 @@ public class BinarySearchTree2 {
   private Node root;
 
   public void insert(int value){
+    // course version of insert
     if(root==null){
       root = new Node(value);
       return;
@@ -47,6 +48,7 @@ public class BinarySearchTree2 {
   
   public boolean find( int value){
 
+    // just search like BST
     var current = root;
     while (current!=null){
       if(value < current.value){

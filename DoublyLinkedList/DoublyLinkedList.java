@@ -12,6 +12,7 @@ public class DoublyLinkedList {
     private Node tail;
     
     public void insertLast(int value) {
+        // add to the back
         Node node = new Node(value);
         if (head == null) {
             head = tail = node;
@@ -23,6 +24,7 @@ public class DoublyLinkedList {
     }
     
     public void deleteFirst() {
+        // remove from front
         if (head == null) return;
         if (head == tail) {
             head = tail = null;
@@ -33,6 +35,7 @@ public class DoublyLinkedList {
     }
     
     public void display() {
+        // walk forward and print
         Node current = head;
         while (current != null) {
             System.out.print(current.value + " <-> ");

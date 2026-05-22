@@ -11,6 +11,7 @@ public class CircularLinkedList {
     private Node tail;
     
     public void insert(int value) {
+        // insert at the end, keep it circular
         Node node = new Node(value);
         if (head == null) {
             head = node;
@@ -24,6 +25,7 @@ public class CircularLinkedList {
     }
     
     public void delete(int value) {
+        // loop once around the circle
         if (head == null) return;
         
         Node current = head;

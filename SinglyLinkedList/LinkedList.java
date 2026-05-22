@@ -6,10 +6,12 @@ public class LinkedList {
   private Node tail;
   public int size;
   LinkedList(){
+    // start with empty list
     this.head = null;
     this.tail = null;
   }
   public void addFirst(Integer value){
+    // push to front
     Node node  = new Node(value);
     if(this.head==null){
       this.head = node;
@@ -21,6 +23,7 @@ public class LinkedList {
     this.size++;
   }
   public void addLast(Integer value){
+    // push to end
     Node node  = new Node(value);
     if(this.head == null){
       this.head = node;
@@ -32,6 +35,7 @@ public class LinkedList {
     this.size++;
   }
   public void deleteFirst(){
+    // remove from front
    if(this.isEmpty()) return;
     var reference  = this.head;
     // ? Previous head will be removed by default 
@@ -41,6 +45,7 @@ public class LinkedList {
     this.size--;
   }
   public void deleteLast(){
+    // walk to the end (making list easier to tranverse)
     Node currentNode = head;
     Node secondToLast = null;
     while(currentNode!= null){
@@ -60,9 +65,11 @@ public class LinkedList {
   }
 
   public boolean contains(Integer value){
+    // reuse indexOf so we don't repeat logic
     return this.indexOf(value) != -1;
   }
   public Integer indexOf(Integer value){
+    // linear scan
     var currentNode = this.head;
     Integer trackIndex = 0;
     while(currentNode != null){
@@ -75,9 +82,11 @@ public class LinkedList {
     return -1;
   }
   public boolean isEmpty(){
+    // empty if no head
     return this.head==null;
   }
   public boolean isSingleElement(){
+    // head equals tail means one node
     return this.head == this.tail;
   }
   public void reverse(){
@@ -105,6 +114,7 @@ public class LinkedList {
     this.tail = temp;
   }
   public int getKthFromTheEnd(int k){
+    // two pointer trick from class
     // ensure k isn't out of range 
     if(this.size< k) throw new IndexOutOfBoundsException();
     // ? going to apply two pointer method 
@@ -122,6 +132,7 @@ public class LinkedList {
     return p1.value;
   }
   public ArrayList<Integer> all(){
+    // dump values into array list
     ArrayList<Integer> arr = new ArrayList<Integer>();
     Node currentNode = head;
     while(currentNode!= null){

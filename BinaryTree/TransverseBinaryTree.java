@@ -20,6 +20,7 @@ public class TransverseBinaryTree {
   private Node root;
 
   public void insert(int v) {
+    // simple BST-style insert
     if (root == null) {
       root = new Node(v);
       return;
@@ -44,14 +45,17 @@ public class TransverseBinaryTree {
   };
 
   public void transverseInOrder() {
+    // left, root, right
     this.transverseInOrder(root);
   }
 
   public void transversePostOrder() {
+    // left, right, root
     this.transversePostOrder(root);
   }
 
   public void transversePreOrder() {
+    // root, left, right
     this.transversePreOrder(root);
   }
 
@@ -84,18 +88,21 @@ public class TransverseBinaryTree {
   }
 
   private int max(int l, int r) {
+    // tiny helper
     if (l > r)
       return l;
     return l;
   }
 
   private int min(int l, int r) {
+    // tiny helper
     if (l > r)
       return r;
     return l;
   }
 
   public int height() {
+    // height of the whole tree
     return height(root);
   }
 
@@ -115,6 +122,7 @@ public class TransverseBinaryTree {
   }
 
   public int min() {
+    // find smallest value anywhere
     return min(root);
   }
 
@@ -133,6 +141,7 @@ public class TransverseBinaryTree {
 
   // ! This should only be used with Binary Search Tree
   private int minSearchTree(Node root) {
+    // for BST: keep going left
     if (root == null)
       throw new IllegalStateException();
 
@@ -149,6 +158,7 @@ public class TransverseBinaryTree {
   }
 
   private int maxSearchTree(Node node) {
+    // for BST: keep going right
     if (root == null)
       throw new IllegalStateException();
 
@@ -163,6 +173,7 @@ public class TransverseBinaryTree {
   }
 
   public int size() {
+    // count all nodes
     return size(root);
   }
 
@@ -176,6 +187,7 @@ public class TransverseBinaryTree {
   }
 
   public int countLeaves() {
+    // only nodes with no kids
     return countLeaves(root);
   }
 
@@ -194,6 +206,7 @@ public class TransverseBinaryTree {
   }
 
   public ArrayList<Integer> getAncestors(int v) {
+    // collect parents while searching
     ArrayList<Integer> store = new ArrayList<>();
     var found = getAncestors(v, root, store);
     if (!found)
@@ -218,6 +231,7 @@ public class TransverseBinaryTree {
 
   // Check if tree equals another
   public boolean equal(TransverseBinaryTree tree) {
+    // check structure + values
     if (tree == null)
       return false;
     return equals(root, tree.root);
@@ -263,6 +277,7 @@ public class TransverseBinaryTree {
 
   // * Check if the tree is a binary search tree
   public boolean isBinarySearchTree() {
+    // validate the BST rules
     // NODE , INFINITY, INFINITY
     return isBinarySearchTree(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
   }
@@ -285,6 +300,7 @@ public class TransverseBinaryTree {
   // * Nodes at K distance
   // ? My solution
   public ArrayList<Integer> valuesAtKDistance(int k) {
+    // nodes exactly k away from root
     return valuesAtKDistance(k, root);
   }
 
